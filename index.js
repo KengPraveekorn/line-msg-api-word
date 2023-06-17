@@ -32,7 +32,7 @@ const handleEvent = async (event) => {
         return null;
     }
     else if (event.type === 'message'){
-        const { dataSyn } = await axios.get(`https://${env.RAPID_URL}/words/${event.message.text}/synonyms`,{
+        const { data } = await axios.get(`https://${env.RAPID_URL}/words/${event.message.text}/synonyms`,{
             headers: {
                 'x-rapidapi-host':env.RAPID_URL,
                 'x-rapidapi-key': env.RAPID_KEY
@@ -44,9 +44,9 @@ const handleEvent = async (event) => {
         //         'x-rapidapi-key': env.RAPID_KEY
         //     }
         // })
-        console.log("DataSyn=>>>>>",dataSyn);
+        console.log("Data=>>>>>",data);
         // console.log("DataDef=>>>>>",dateDef);
-        const { synonyms } = dataSyn
+        const { synonyms } = data
         // const { definitions } = dateDef
         let str = ''
         // let str2 = ''
