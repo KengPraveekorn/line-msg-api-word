@@ -32,20 +32,33 @@ const handleEvent = async (event) => {
         return null;
     }
     else if (event.type === 'message'){
-        const { data } = await axios.get(`https://${env.RAPID_URL}/words/${event.message.text}/synonyms`,{
+        const { dataSyn } = await axios.get(`https://${env.RAPID_URL}/words/${event.message.text}/synonyms`,{
             headers: {
                 'x-rapidapi-host':env.RAPID_URL,
                 'x-rapidapi-key': env.RAPID_KEY
             }
         })
-        console.log("Data=>>>>>",data);
-        const { synonyms } = data
+        const { dateDef } = await axios.get(`https://${env.RAPID_URL}/words/${event.message.text}/definitions`,{
+            headers: {
+                'x-rapidapi-host':env.RAPID_URL,
+                'x-rapidapi-key': env.RAPID_KEY
+            }
+        })
+        console.log("DataSyn=>>>>>",dataSyn);
+        console.log("DataDef=>>>>>",dateDef);
+        const { synonyms } = dataSyn
+        const { definitions } = dateDef
         let str = ''
+        let str2 = ''
         synonyms.forEach((result,i)=> {
             str += synonyms.length -1 !== i ? `${result}\n` : result
         })
+        definitions.forEach((result,i)=> {
+            str2 += definitions.length -1 !== i ? `${result}\n` : result
+        })
         console.log("STR =>>>>>>", str);
-        return client.replyMessage(event.replyToken, { type: 'text', text: str });
+        console.log("STR2 =>>>>>>", str2);
+        return client.replyMessage(event.replyToken, { type: 'text', text: str,str2 });
     }
   
 };
