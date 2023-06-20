@@ -1,11 +1,11 @@
 # Line Bot synonyms and definition system
-## Scenario
+### Scenario
 When input any word to Line chatbot, such as **Regret**, Line chatbot should response to show 5 synonyms and 1 definition of **Regret** in the chat.
-## Requirement
+### Requirement
  - Develop & deploy the system to any cloud (serverless) such as AWS Lambda, GCP Function, Heroku, or DigitalOcean.
  - Integrate the system with Line Chat Bot API.
  - Integrate the system with Oxford Dictionary API. 
-## Example Situation
+### Example Situation
 - The word has definition and synonyms.
   - Input: **Regret**
   - Output:
