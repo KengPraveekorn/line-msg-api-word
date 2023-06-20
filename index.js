@@ -65,9 +65,19 @@ const handleEvent = async (event) => {
       str2 += 1 + "." + " " + `${definitions[0]}`;
       console.log("STR second API =>>>>>>", str2);
 
+      const checkNoSyn = ()=>{
+        if(!str1){
+          return "Word: " + data[0].data.word + "\n" + "•Definition: " + "\n" + str2
+        }else{
+          return "Word: " + data[0].data.word + "\n" + "•Definition: " + "\n" + str2 + "\n" + "•Synonyms: " + "\n" + str1
+        }
+      }
+      
+
       return client.replyMessage(event.replyToken, {
         type: "text",
-        text: "Word: " + data[0].data.word + "\n" + "•Definition: " + "\n" + str2 + "\n" + "•Synonyms: " + "\n" + str1
+        // text: "Word: " + data[0].data.word + "\n" + "•Definition: " + "\n" + str2 + "\n" + "•Synonyms: " + "\n" + str1
+        text: checkNoSyn() 
       });
     });
   }
