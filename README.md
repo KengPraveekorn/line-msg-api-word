@@ -25,6 +25,7 @@ When input any word to Line chatbot, such as **Regret**, Line chatbot should res
 ### - Create Line chatbot and add friend in line
 
 ![image](https://github.com/KengPraveekorn/line-msg-api-word/assets/100522451/6d1a2e97-3535-43d7-9751-df0fac413a35)
+![image](https://github.com/KengPraveekorn/line-msg-api-word/assets/100522451/32fc2698-c8fc-4519-9752-c49c04271311)
 
 # Installation Nodejs
 
